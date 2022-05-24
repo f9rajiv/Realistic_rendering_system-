@@ -1,0 +1,27 @@
+{% extends 'headerPage.html' %}
+{% block content%}
+<br> <br> <br>
+<h2> File Uploaded</h2>
+
+{% if filepathname|slice:"-4:" == ".mp4" %}
+
+
+<video autoplay="autoplay" controls="controls" preload="preload" width="400px" height="400px">
+						<source src="{{filepathname}}" type="video/mp4"></source>
+					</video>
+{% else %}
+<img src="{{filepathname}}" alt="no image found" width="300" height="300">
+{% endif %}
+
+
+<div>
+<form method="post" enctype="multipart/form-data" action="viewcode">
+
+{% csrf_token %}
+
+<br>
+
+<input type="Submit" value="View output" class="btn btn-danger">
+</form></div>
+
+{% endblock %}

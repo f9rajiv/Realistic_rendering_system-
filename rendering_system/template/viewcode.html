@@ -1,0 +1,20 @@
+{% extends 'headerPage.html' %}
+{% block content%}
+
+
+
+<!-- <img src="{{filepathname}}" alt="no image found" width="300" height="300"> -->
+
+{% if filepathname|slice:"-4:" == ".mp4" %}
+
+<video autoplay="autoplay" controls="controls" preload="preload">
+    <source src="{{pathname}}" type="video/mp4"></source>
+</video>
+
+{% else %}
+
+<img src="{{pathname}}" alt="no image found" width="300" height="300">
+
+{% endif %}
+
+{% endblock %}
